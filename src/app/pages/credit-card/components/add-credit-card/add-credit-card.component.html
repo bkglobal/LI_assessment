@@ -1,0 +1,43 @@
+<div class="card credit-card-main">
+    <div class="card-header">
+        <h3>Add Credit Card</h3>
+    </div>
+    <div class="card-body">
+
+
+
+        <form [formGroup]="creditCardForm">
+            <div class="form-row">
+                <div class="col-12">
+                    <input formControlName="cardHolderName" type="text" class="form-control" placeholder="Card Holder Name">
+                    <div class="error-highlighter">
+                        Please enter card holder name.
+                      </div>
+                </div>
+                <div class="col-7">
+                    <input  formControlName="creditCardNumber" type="text" class="form-control" placeholder="Credit Card Number">
+                    <div class="error-highlighter">
+                        Please enter credit card number.
+                      </div>
+                </div>
+                <div class="col">
+                    <input formControlName="expirationDate" type="date" class="form-control" min="{{today}}" placeholder="Expiration Date">
+                    <div class="error-highlighter">
+                        Please enter expiration date.
+                      </div>
+                </div>
+                <div class="col">
+                    <input formControlName="cvc" type="text" class="form-control" placeholder="CVC">
+                </div>
+                <div class="col-12">
+                    <input formControlName="amount" type="number" class="form-control" placeholder="Amount">
+                    <div class="error-highlighter">
+                        Please enter amount.
+                      </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+</div>
