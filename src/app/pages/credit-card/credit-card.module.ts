@@ -6,7 +6,7 @@ import { AddCreditCardComponent } from './components/add-credit-card/add-credit-
 import { CreditCardComponent } from './credit-card.component';
 import { ListCreditCardsComponent } from './components/list-credit-cards/list-credit-cards.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     CreditCardRoutingModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class CreditCardModule { }

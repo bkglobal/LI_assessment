@@ -3,41 +3,60 @@
         <h3>Add Credit Card</h3>
     </div>
     <div class="card-body">
-
-
-
-        <form [formGroup]="creditCardForm">
+        <form [formGroup]="creditCardForm" (submit)="submitCreditCardForm($event)">
             <div class="form-row">
-                <div class="col-12">
-                    <input formControlName="cardHolderName" type="text" class="form-control" placeholder="Card Holder Name">
-                    <div class="error-highlighter">
+                <div class="col-12 form-col">
+                    <input formControlName="cardHolderName" type="text" class="form-control"
+                        placeholder="Card Holder Name">
+                    <div *ngIf="(cardHolderName && (cardHolderName.dirty || cardHolderName.touched)) && cardHolderName?.errors?.required"
+                        class="error-highlighter">
                         Please enter card holder name.
-                      </div>
+                    </div>
                 </div>
-                <div class="col-7">
-                    <input  formControlName="creditCardNumber" type="text" class="form-control" placeholder="Credit Card Number">
-                    <div class="error-highlighter">
+                <div class="col-7 form-col">
+                    <input formControlName="creditCardNumber" type="text" class="form-control"
+                        placeholder="Credit Card Number">
+                    <div *ngIf="(creditCardNumber && (creditCardNumber.dirty || creditCardNumber.touched)) && creditCardNumber?.errors?.required"
+                        class="error-highlighter">
                         Please enter credit card number.
-                      </div>
+                    </div>
                 </div>
-                <div class="col">
-                    <input formControlName="expirationDate" type="date" class="form-control" min="{{today}}" placeholder="Expiration Date">
-                    <div class="error-highlighter">
+                <div class="col form-col">
+                    <input formControlName="expirationDate" type="date" class="form-control" min="{{today}}"
+                        placeholder="Expiration Date">
+                    <div *ngIf="(expirationDate && (expirationDate.dirty || expirationDate.touched)) && expirationDate?.errors?.required"
+                        class="error-highlighter">
                         Please enter expiration date.
-                      </div>
+                    </div>
                 </div>
-                <div class="col">
+                <div class="col form-col">
                     <input formControlName="cvc" type="text" class="form-control" placeholder="CVC">
+                    <div *ngIf="(cvc && (cvc.dirty || cvc.touched))">
+                        <div *ngIf="cvc?.errors?.minlength" class="error-highlighter">
+                            Minimum Length should be 3
+                        </div>
+                        <div *ngIf="cvc?.errors?.maxlength" class="error-highlighter">
+                            Maximum Length should be 3
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12">
+                <div class="col-12 form-col">
                     <input formControlName="amount" type="number" class="form-control" placeholder="Amount">
-                    <div class="error-highlighter">
-                        Please enter amount.
-                      </div>
+                    <div *ngIf="(amount && (amount.dirty || amount.touched)) ">
+                        <div *ngIf="amount?.errors?.required" class="error-highlighter">
+                            Please enter amount.
+                        </div>
+                        <div *ngIf="amount?.errors?.min" class="error-highlighter">
+                            Can not be less then 1
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-col">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
 
         </form>
     </div>
 </div>
+

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './core/components/card/card.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { StoreModule } from '@ngrx/store';
+import { creditCardReducer } from './state/credit-card/credit-card.reducer';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { StoreModule } from '@ngrx/store';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({creditCard: creditCardReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

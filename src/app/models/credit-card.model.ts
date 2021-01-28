@@ -1,8 +1,8 @@
 export interface CreditCard {
     id: number;
     creditCardNumber: string;
-    cardHolder: string;
+    cardHolderName: string;
     expirationDate: Date;
-    ccv: string;
+    cvc: string;
     amount: number;
 }

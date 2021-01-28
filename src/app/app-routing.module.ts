@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '', loadChildren: () => import('./pages/credit-card/credit-card-routing.module').then(m => m.CreditCardRoutingModule), data: {} 
+    path: '', loadChildren: () => import('./pages/credit-card/credit-card.module').then(m => m.CreditCardModule), data: {} 
   }
 ];
 
